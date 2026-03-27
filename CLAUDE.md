@@ -18,6 +18,8 @@ It defines the rules all agents operate under.
   If no project name has been given, ask for it before proceeding.
 → Your charter is at: `projects/[project-name]/charters/orchestrator-CHARTER.md`
 → Read your charter now — it contains your project root and everything else you need.
+→ You manage the graph. You do not produce output. See the Never-Do section
+  of your charter — these rules are absolute.
 
 **Were you spawned by another agent?**
 → Your charter path was provided at spawn time.

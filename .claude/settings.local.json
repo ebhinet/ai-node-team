@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(rm:*)",
+      "Bash(for f:*)",
+      "Bash(do sed:*)",
+      "Bash(echo \"Fixed: $f\")",
+      "Bash(done)",
+      "WebFetch(domain:unsplash.com)",
+      "WebFetch(domain:images.unsplash.com)",
+      "Bash(for id:*)",
+      "Bash(do echo:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://images.unsplash.com/photo-$id?auto=format&fit=crop&w=100&q=10\")",
+      "Bash(do)",
+      "Bash(curl -s -o \"/tmp/unsplash_check/portrait_$id.jpg\" \"https://images.unsplash.com/photo-$id?auto=format&fit=crop&w=300&q=60\")",
+      "Bash(grep -c 'images.unsplash.com' \"/Users/ebheatherington/Agentic Teams/node-driven-team/projects/marigold/output/website/\"*.html)"
+    ]
+  }
+}

@@ -76,6 +76,30 @@ _Document read list is determined by the orchestrator — there are no universal
 
 ---
 
+## Specialist Nodes
+
+Specialist nodes operate outside the execution loop. They are not assigned deliverables
+and do not appear in the project plan stage rows. They are spawned by the orchestrator
+at defined lifecycle points and produce findings documents — not project output.
+
+### plan-adversarial
+**Role:** Reviews the project plan itself — not deliverable content. Spawned by the
+orchestrator at defined lifecycle points (see charter for full pass definitions).
+
+**Document inputs (varies by pass — see charter):**
+- `client/intake-record.md` — confirmed scope, deliverables, and client decisions
+- `output/project-plan.md` — project plan under review or as background context
+- `output/node-map.md` — node map under review or as background context
+- All client-provided files listed in the intake record (intake pass)
+
+**Memory connections:**
+- `memory/plan-adversarial-memory.md` — own memory — persists across all passes;
+  check prior findings, identified subjective choice points, and option count recommendations
+- `memory/orchestrator-memory.md` — orchestrator working state — context for why the
+  plan was structured as it was
+
+---
+
 ## Amendment Log
 
 | Date | Change | Triggered By |

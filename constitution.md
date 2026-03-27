@@ -27,6 +27,7 @@ All paths below are relative to the project root.
 | Charter Specialist | `charters/[node-id]-CHARTER.md`, `charters/[domain]-adversarial-CHARTER.md`, `memory/[node-id]-memory.md`, `memory/[domain]-adversarial-memory.md` |
 | Originator | `output/documents/[node-id]-doc.md`, `memory/[node-id]-memory.md` |
 | Adversarial | `output/documents/[node-id]-doc-challenge.md`, `memory/[domain]-adversarial-memory.md` |
+| Plan Adversarial | `output/documents/plan-adversarial-[pass].md` (one per pass), `memory/plan-adversarial-memory.md` |
 
 _Naming note: adversarial node IDs follow the pattern `[domain]-adversarial` where `[domain]` is the domain name (e.g. `brand-adversarial`, `ux-adversarial`). All charter and memory file names derive directly from the node ID._
 
@@ -76,10 +77,12 @@ When an agent encounters something that appears to be outside confirmed scope:
 
 ## Verdict Authority
 
-The adversarial node owns the verdict. `PROCEED` or `REWORK: [description]` — no other agent may issue or override it.
+Adversarial agents own their verdicts. `PROCEED` or `REWORK: [description]` — no other agent
+may issue or override them. This applies to both domain adversarials (reviewing originator
+output) and the Plan Adversarial (reviewing the project plan at lifecycle checkpoints).
 
-The orchestrator acts on the verdict but does not modify it.
-The originator responds to a `REWORK` verdict but does not dispute it — it reworks and resubmits.
+The orchestrator acts on verdicts but does not modify them.
+Originators respond to a `REWORK` verdict but do not dispute it — they rework and resubmit.
 The loop does not close until the adversarial issues `PROCEED`.
 
 ---

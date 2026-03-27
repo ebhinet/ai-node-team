@@ -45,9 +45,11 @@ template_project/
 │   └── readme.md
 ├── charters/
 │   ├── orchestrator-CHARTER.md
-│   └── charter-specialist-CHARTER.md
+│   ├── charter-specialist-CHARTER.md
+│   └── plan-adversarial-CHARTER.md
 ├── memory/
-│   └── orchestrator-memory.md
+│   ├── orchestrator-memory.md
+│   └── plan-adversarial-memory.md
 └── output/
     ├── documents/
     └── deliverables/
@@ -78,19 +80,22 @@ All other charters are written by the Charter Specialist at plan time.
 |---|---|
 | `orchestrator-CHARTER.md` | Pre-seeded; defines orchestrator behavior |
 | `charter-specialist-CHARTER.md` | Pre-seeded; defines Charter Specialist behavior |
+| `plan-adversarial-CHARTER.md` | Pre-seeded; defines Plan Adversarial behavior — reviews intake, plan, node map, and scope events (see charter for full pass definitions) |
 | `[node-id]-CHARTER.md` | Written by Charter Specialist at plan time for each originator node |
 | `[domain]-adversarial-CHARTER.md` | Written by Charter Specialist at plan time for each adversarial domain node |
 
 ---
 
 ### memory/
-One memory file per agent. The orchestrator memory file is pre-seeded blank.
-All other memory files are written by the Charter Specialist at plan time using
+One memory file per agent. Pre-seeded memory files (`orchestrator-memory.md`,
+`plan-adversarial-memory.md`) are included in the template project. All other
+memory files are created by the Charter Specialist at plan time using
 `templates/memory-starter.md`.
 
 | Naming | Purpose |
 |---|---|
 | `orchestrator-memory.md` | Pre-seeded blank; maintained by orchestrator |
+| `plan-adversarial-memory.md` | Pre-seeded blank; maintained by Plan Adversarial |
 | `[node-id]-memory.md` | Created by Charter Specialist at plan time; maintained by each agent during execution |
 
 ---
@@ -112,7 +117,8 @@ One document pair per originator node.
 |---|---|
 | `[node-id]-doc.md` | The originator's output document |
 | `[node-id]-doc-challenge.md` | The adversarial's challenge document, paired to the above |
+| `plan-adversarial-[pass].md` | Plan Adversarial findings document — one per pass (see plan-adversarial-CHARTER.md for exact filenames per pass) |
 
-Both files are created and updated together. When the originator revises
+Originator/adversarial pairs are created and updated together. When the originator revises
 its document following a `REWORK` verdict, the adversarial updates its
 challenge document in the same pass. They are a permanent pair.
