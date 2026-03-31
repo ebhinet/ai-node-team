@@ -37,6 +37,19 @@ No agent modifies any charter after it has been written.
 
 ---
 
+## Output Format Standard
+
+Every deliverable has a format. Format is defined in the project plan and is not optional.
+
+The orchestrator sets the format for every node at plan time by specifying it in the project plan's Format column. When deciding format, the orchestrator applies this rule:
+
+- Deliverables consumed by the client or surfaced at a gate must be in a human-readable format — `.html`, `.pdf`, `.doc`, or equivalent. Markdown is not sufficient for client-facing output.
+- Deliverables consumed only by other agents may be in any format appropriate to the work — `.md`, `.py`, `.png`, a folder of assets, etc.
+
+Every agent reads its format from the project plan before producing output and writes its deliverable in that format. Format is not inferred — it is read.
+
+---
+
 ## Missing Connections
 
 If at any point an agent identifies a document or memory file it needs to
@@ -99,3 +112,26 @@ Every agent must maintain its memory such that:
 
 Memory is updated immediately after completing work — before issuing any response.
 Memory is never deleted — only updated or extended.
+
+---
+
+## External Tools
+
+Some projects require capabilities beyond document production — image generation, audio generation, and similar. These are available to the V4 system via MCP-connected tools.
+
+The full tool registry is in `tools.md` at the project root. It defines what each tool does, its MCP server name, how to invoke it, and prompting best practices.
+
+**How tools enter the system:**
+- The orchestrator reads `tools.md` at plan time when a project may require tool-dependent output
+- If a tool is warranted, the orchestrator includes it in the relevant node's charter — passing the tool name, invocation pattern, and any guidance the node needs to use it correctly
+- No agent uses a tool that has not been authorized in its charter
+
+**Decision rule — custom vs. stock media:**
+- Use stock media when generic imagery is acceptable and speed or cost outweighs visual differentiation
+- Use AI-generated media when custom, brand-consistent, or non-generic output is required and stock would produce noticeably weaker results
+- When in doubt, surface the question to the client before committing to a tool-dependent node
+
+**Usage rules — all tools:**
+- All external tools are paid and token-driven. Use is confirmed by the client before any tool call is made — do not call a tool speculatively
+- Craft the prompt carefully and run once. Do not iterate on tool calls repeatedly to refine output — get the prompt right first, then execute
+- If a tool call fails due to insufficient credits or tokens, report blocked to the orchestrator immediately. The orchestrator surfaces this to the client — it is not a problem the agent resolves on its own

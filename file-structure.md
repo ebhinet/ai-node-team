@@ -11,6 +11,7 @@ _Informational only. File locations and purposes only — write permissions are 
 ├── CLAUDE.md
 ├── constitution.md
 ├── file-structure.md
+├── tools.md
 ├── templates/
 └── projects/
     └── template_project/
